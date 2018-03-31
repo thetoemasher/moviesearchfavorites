@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './reset.css';
 import './App.css';
+import 'bulma/css/bulma.css'
 import axios from 'axios';
 import List from './components/List'
 import Favorites from './components/Favorites';
@@ -67,33 +68,48 @@ addRating() {
   
     return (
       <div className="App">
-        <h1>Search for Movies</h1>
-        <h1>Add to Favorites</h1>
-        <input placeholder="Search for a Movie" onChange={(e) => {
-          this.updateUserInput(e.target.value)}}/>
+        <h1 className="title is-1">Movie Search</h1>
+        {/* <h1 className="title">Add to Favorites</h1> */}
         
-        <Button text="Search Movies" 
-        callback={this.searchMovieList} 
-        val={userInput}/>
+        
+        <div className="field is-grouped column">
+          <div className="control">
+            <input className="input is-rounded" placeholder="Search for a Movie" onChange={(e) => {
+              this.updateUserInput(e.target.value)}}/>
+          </div>
+          <div className="control">
+            <Button text="Search Movies" 
+            callback={this.searchMovieList} 
+            val={userInput} 
+            styleName="is-link is-outlined" />
+          </div>
+          <div className="contorl">
+            <Button text="Search Favorites" 
+            callback={this.searchFavorites} 
+            val={userInput}
+            styleName="is-info is-outlined" />
+          </div>
+        
+        </div>
 
-        <Button text="Search Favorites" 
-        callback={this.searchFavorites} 
-        val={userInput}/>
 
-        <Movies 
-        input={userInput}
-        movieList={movieList} 
-        img_url={img_url} 
-        searchMovies={this.searchMovieList} 
-        favoriteMovie={this.favoriteMovie}/>
+        <div className="columns">
+          <Movies 
+          input={userInput}
+          movieList={movieList} 
+          img_url={img_url} 
+          searchMovies={this.searchMovieList} 
+          favoriteMovie={this.favoriteMovie}/>
 
-        <Favorites 
-        input={userInput}
-        favorite={favoriteList}
-        img_url={img_url} 
-        base_url={base_url} 
-        deleteFav={this.deleteFavorite} 
-        searchFavs={this.searchFavorites} />
+          <Favorites 
+          input={userInput}
+          favorite={favoriteList}
+          img_url={img_url} 
+          base_url={base_url} 
+          deleteFav={this.deleteFavorite} 
+          searchFavs={this.searchFavorites} />
+
+        </div>
       </div>
     );
   }

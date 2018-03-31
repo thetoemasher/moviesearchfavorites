@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Movies.css';
+// import './Movies.css';
 import List from './List';
 import axios from 'axios';
 
@@ -20,13 +20,13 @@ class Favorites extends Component {
         // let {userInput} = this.state;
         let {movieList, img_url, searchMovies, favoriteMovie, input} = this.props;
         return (
-            <div className="MovieList">
+            <div className="column">
                 {/* <input value={userInput} placeholder='Search for a Movie' onChange={(e) => this.updateUserInput(e.target.value)}/> */}
                 {/* <button onClick={() => searchMovies(input)}>Search Movies</button> */}
-                <div className="Movies_List">
-                    <List list={movieList} img_url={img_url} callback={favoriteMovie} text="Favorite" styleName="favButton"/>
+                {/* <div className="Movies_List"> */}
+                    <List list={movieList} img_url={img_url} callback={favoriteMovie} text="Favorite" styleName="is-primary"/>
                 </div>
-            </div>
+            // </div>
         );
     }
 }

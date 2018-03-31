@@ -4,7 +4,7 @@ function Button(props) {
     let {callback, val, text, styleName} = props;
     return (
         <div>
-            <button className={styleName} onClick={() => callback(val)}>{text}</button>
+            <button className={`button ${styleName} `} onClick={() => callback(val)}>{text}</button>
         </div> 
     )
 }
