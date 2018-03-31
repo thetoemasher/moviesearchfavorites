@@ -1,0 +1,27 @@
+.List_all {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.List_img {
+    float: left;
+    height: 200px;
+    width: auto;
+    margin-right: 10px;
+    clear: both;   
+}
+
+.List_right_all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    height: 200px;
+}
+
+.List_right_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
