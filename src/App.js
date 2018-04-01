@@ -92,9 +92,19 @@ updateRatingFavs(id, rating) {
     return (
       <div className="App">
         <h1 className="title is-1">Movie Search</h1>
-        
-        
-        <div className="field is-grouped">
+        <div className="columns">
+        <input className="input is-rounded" placeholder="Search for a Movie" onChange={(e) => {
+          this.updateUserInput(e.target.value)}}/>
+          <Button text="Search Movies" 
+            callback={this.searchMovieList} 
+            val={userInput} 
+            styleName="is-link" />
+          <Button text="Search Favorites" 
+            callback={this.searchFavorites} 
+            val={userInput}
+            styleName="is-info is-outlined" />
+        </div>
+        {/* <div className="field is-grouped is-centered">
           <div className="control">
             <input className="input is-rounded" placeholder="Search for a Movie" onChange={(e) => {
               this.updateUserInput(e.target.value)}}/>
@@ -111,7 +121,7 @@ updateRatingFavs(id, rating) {
             val={userInput}
             styleName="is-info is-outlined" />
           </div>  
-        </div>
+        </div> */}
               <button className="button" onClick={() => {this.toggleFavs()}}>Show Favorites</button>
 
         <div className="">
