@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import './Movies.css';
 import List from './List';
-import axios from 'axios';
 
 class Favorites extends Component {
     constructor() {
@@ -18,9 +17,13 @@ class Favorites extends Component {
 
     render() {
         // let {userInput} = this.state;
-        let {movieList, img_url, searchMovies, favoriteMovie, input} = this.props;
+        let {movieList, img_url, searchMovies, favoriteMovie, input, showFavs} = this.props;
+        let visible = '';
+        if (showFavs) {
+            visible = "is-hidden";
+        }
         return (
-            <div className="column">
+            <div className={`${visible}`}>
                 {/* <input value={userInput} placeholder='Search for a Movie' onChange={(e) => this.updateUserInput(e.target.value)}/> */}
                 {/* <button onClick={() => searchMovies(input)}>Search Movies</button> */}
                 {/* <div className="Movies_List"> */}

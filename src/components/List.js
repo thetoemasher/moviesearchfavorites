@@ -8,24 +8,23 @@ function List(props) {
     return (
         list.map(m => {
             return(
-                <div className="box">
-                    <div className="level" key={m.id}>
+                    <div className="box level" key={m.id}>
                         <img className="level-left" src={`${img_url}${m.poster_path}`} alt={`${m.title} poster`} />
-                        <div clasName="List_right_all level-right">
-                                <p className="List_title level-item title">{m.title}</p>
-                            <div className="List_right_top level">
-                                <p className="level-item">Release Date: {m.release_date}</p>
-                                <p className="level-item">Average Rating: {m.vote_average}</p>
-                            </div>
+                        <div>
+
+
+                        <p className="List_title level-item title">{m.title}</p>
+                        <div className="List_right_top level">
+                            <p className="level-item">Release Date: {m.release_date}</p>
+                            <p className="level-item">Average Rating: {m.vote_average}</p>
+                        </div>
                             <p className="level-item box">Synopsis: {m.overview}</p>
                             <div className="level">
                                 <Button callback={callback} val={m} text={text} styleName={`level-item ${styleName}`}/>
                                 <Button text="Rate" styleName="is-warning level-item"/>
-
                             </div>
-                            </div>
+                        </div>
                     </div>  
-                </div>
             )
     }))
 }

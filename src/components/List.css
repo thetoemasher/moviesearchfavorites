@@ -2,17 +2,15 @@
     display: flex;
     flex-direction: column;
     margin: 10px;
-}
+} */
 
 .List_img {
-    float: left;
-    height: 200px;
+    height: 250px;
     width: auto;
-    margin-right: 10px;
-    clear: both;   
+
 }
 
-.List_right_all {
+/* .List_right_all {
     display: flex;
     flex-direction: column;
     justify-content: center ;

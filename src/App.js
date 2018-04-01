@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import './reset.css';
 import './App.css';
-import 'bulma/css/bulma.css'
+// import 'bulma/css/bulma.css'
 import axios from 'axios';
-import List from './components/List'
 import Favorites from './components/Favorites';
 import Movies from './components/Movies'
 import Button from './components/Button'
@@ -17,7 +15,8 @@ class App extends Component {
       favoriteList: [],
       userInput: '',
       base_url: 'http://localhost:7859/api/movies/',
-      img_url: 'https://image.tmdb.org/t/p/w200/'
+      img_url: 'https://image.tmdb.org/t/p/w200/',
+      showFavorites: false,
     }
     this.searchMovieList = this.searchMovieList.bind(this);
     this.favoriteMovie = this.favoriteMovie.bind(this);
@@ -37,7 +36,7 @@ class App extends Component {
 
   searchMovieList(search){
     axios.get(`${this.state.base_url}search/${search}`).then(res => {
-      this.setState( {movieList: res.data})
+      this.setState( {movieList: res.data, showFavorites: false})
     });
   }
 
@@ -55,7 +54,7 @@ class App extends Component {
 
 searchFavorites(search) {
   axios.get(`${this.state.base_url}favorites/search/${search}`).then(res => {
-    this.setState({ favoriteList: res.data});
+    this.setState({ favoriteList: res.data, showFavorites: true});
   })
 }
 
@@ -63,8 +62,12 @@ addRating() {
 
 }
 
+toggleFavs() {
+  this.setState({showFavorites: !this.state.showFavorites});
+}
+
   render() {
-    let { movieList, userInput, img_url, favoriteList, base_url } = this.state;
+    let { movieList, userInput, img_url, favoriteList, base_url, showFavorites } = this.state;
   
     return (
       <div className="App">
@@ -91,23 +94,21 @@ addRating() {
           </div>
         
         </div>
+              <button className="button" onClick={() => {this.toggleFavs()}}>Show Favorites</button>
 
-
-        <div className="columns">
+        <div className="">
           <Movies 
-          input={userInput}
+          showFavs={showFavorites}
           movieList={movieList} 
           img_url={img_url} 
-          searchMovies={this.searchMovieList} 
           favoriteMovie={this.favoriteMovie}/>
 
-          <Favorites 
-          input={userInput}
+          <Favorites
+          showFavs={showFavorites}
           favorite={favoriteList}
           img_url={img_url} 
           base_url={base_url} 
-          deleteFav={this.deleteFavorite} 
-          searchFavs={this.searchFavorites} />
+          deleteFav={this.deleteFavorite} />
 
         </div>
       </div>

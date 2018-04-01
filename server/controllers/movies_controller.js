@@ -34,6 +34,7 @@ module.exports = {
                 index = i
             } 
         });
+
         favorites.splice(index, 1);
         res.status(200).send(favorites);
     },
@@ -42,5 +43,14 @@ module.exports = {
         let re = new RegExp(term, 'gi')
         let filteredFavorites = favorites.filter(item => re.test(item.title));
         res.status(200).send(filteredFavorites);
+    },
+    updateRating: (req, res) => {
+        let {id, vote_count, vote_average} = req.body;
+        let index = null;
+        favorites.map((movie, i) => {
+            if(movie.id === +id) index = i;
+        })
+        favorites[i].vote_count = vote_count;
+        favorites[i].vote_average = vote_average;
     }
 }
