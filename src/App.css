@@ -27,7 +27,15 @@
 }
 
 body {
-  margin: 50px;
+  margin: 20px;
+}
+
+.SearchBar {
+  width: 100vw;
+}
+
+img {
+  margin-right: 20px;
 }
 
 @keyframes App-logo-spin {

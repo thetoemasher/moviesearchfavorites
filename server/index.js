@@ -24,8 +24,11 @@ app.post('/api/movies/favorites', mc.createFav)
 //delete movie from favorites
 app.delete('/api/movies/favorites/:id', mc.deleteFav)
 
-//updates the average rating
-app.put('/api/movies/favorites/rating', mc.updateRating)
+//updates the average rating on favorites
+app.put('/api/movies/favorites/:id', mc.updateFavRating)
+
+//updates the average rating on movies
+app.put('/api/movies/:id', mc.updateMovieRating)
 
 
 

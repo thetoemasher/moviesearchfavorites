@@ -44,13 +44,52 @@ module.exports = {
         let filteredFavorites = favorites.filter(item => re.test(item.title));
         res.status(200).send(filteredFavorites);
     },
-    updateRating: (req, res) => {
-        let {id, vote_count, vote_average} = req.body;
+    updateFavRating: (req, res) => {
+        let id = req.params.id
         let index = null;
-        favorites.map((movie, i) => {
-            if(movie.id === +id) index = i;
+        movies.forEach((movie, i) => {
+            if(movie.id === +id) {
+                index = i;
+                if (req.query.rating) {
+                        movies[index].vote_count +=1;
+                        movies[index].vote_average = +req.query.rating
+                }
+            }
+            favorites.forEach((movie, i) => {
+                if(movie.id === +id) {
+                index = i;
+                if (req.query.rating) {
+                    favorites[index].vote_count +=1;
+                    favorites[index].vote_average = req.query.rating;
+                }
+            }
+            })
         })
-        favorites[i].vote_count = vote_count;
-        favorites[i].vote_average = vote_average;
+    
+        res.status(200).send(favorites);
+    },
+    updateMovieRating: (req, res) => {
+        let id = req.params.id
+        let index = null;
+        movies.forEach((movie, i) => {
+            if(movie.id === +id) {
+                index = i;
+                if (req.query.rating) {
+                        movies[index].vote_count +=1;
+                        movies[index].vote_average = +req.query.rating
+                }
+            }
+            favorites.forEach((movie, i) => {
+                if(movie.id === +id) {
+                index = i;
+                if (req.query.rating) {
+                    favorites[index].vote_count +=1;
+                    favorites[index].vote_average = req.query.rating;
+                }
+            }
+            })
+        })
+    
+        res.status(200).send(movies);
     }
 }
