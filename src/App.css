@@ -42,6 +42,11 @@ header {
   margin: 0 0 25px 0;
 }
 
+.known_for {
+  height: 150px;
+  width: auto;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

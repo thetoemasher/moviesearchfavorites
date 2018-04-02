@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import List from './List'
-// import './Favorites.css';
 
 class Favorites extends Component {
     constructor() {
@@ -11,7 +10,7 @@ class Favorites extends Component {
     }
 
     render() {
-        let { favorite, img_url, deleteFav, showFavs, updateRatingFavs } = this.props;
+        let { favorite, img_url, deleteFav, showFavs, updateRatingFavs, findSimilar } = this.props;
         let visible = 'is-hidden';
         if (showFavs) {
             visible = "";
@@ -19,12 +18,13 @@ class Favorites extends Component {
         return (
             <div className={`${visible}`}>
                 <List 
-                list={favorite} 
-                img_url={img_url} 
-                callback={deleteFav} 
-                text="Delete" 
-                styleName="is-danger"
-                updateRatingAll={updateRatingFavs} />
+                    list={favorite} 
+                    img_url={img_url} 
+                    callback={deleteFav} 
+                    text="Delete" 
+                    styleName="is-danger"
+                    updateRatingAll={updateRatingFavs}
+                    findSimilar={findSimilar} />
             </div>
         );
     }

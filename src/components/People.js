@@ -1,48 +1,51 @@
 import React, { Component } from 'react';
 import Button from './Button'
-import ShowsList from './ShowsList'
+import PeopleList from './PeopleList'
 import axios from 'axios'
 
-class Shows extends Component {
+class People extends Component {
     constructor() {
         super();
         this.state = {
             userInput: '',
-            showsList: [],
+            peopleList: [],
         }
-        this.searchShows = this.searchShows.bind(this);
+        this.searchPeople = this.searchPeople.bind(this);
     }
 
     updateUserInput(val) {
         this.setState({ userInput: val })
     }
 
-    searchShows(show) {
-        axios.get(`${this.props.base_url}shows/search/${show}`).then(res => {
-            this.setState({ showsList: res.data });
+    searchPeople(person) {
+        axios.get(`${this.props.base_url}people/search/${person}`).then(res => {
+            this.setState({ peopleList: res.data })
+            console.log(this.state.peopleList);
         })
     }
 
     render() {
-        let { showsList, userInput } = this.state;
+        let { peopleList, userInput } = this.state;
         let { img_url } = this.props;
         return (
             <div>
                 <div className="columns">
-        
+
                     <input 
                         className="input is-rounded" 
                         placeholder="Search for a TV Show" 
                         onChange={ (e) => { this.updateUserInput(e.target.value) }} />
-
+                        
                     <Button 
-                        text="Search TV Shows" 
-                        callback={this.searchShows} 
-                        val={userInput} styleName="is-link" />
-                </div>
+                        text="Search People" 
+                        callback={this.searchPeople} 
+                        val={userInput} 
+                        styleName="is-link" />
 
-                <ShowsList 
-                    list={showsList} 
+                 </div>
+
+                <PeopleList 
+                    list={peopleList} 
                     img_url={img_url} />
                     
             </div>
@@ -55,4 +58,4 @@ class Shows extends Component {
 
 
 
-export default Shows;
+export default People;

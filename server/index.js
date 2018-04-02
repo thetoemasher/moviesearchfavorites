@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mc = require('./controllers/movies_controller');
-const sc = require('./controllers/shows_controller');
+const oc = require('./controllers/other_controller');
 const cors = require('cors');
 
 const port = 7859;
@@ -32,8 +32,13 @@ app.put('/api/movies/favorites/:id', mc.updateFavRating)
 app.put('/api/movies/:id', mc.updateMovieRating)
 
 //search for shows
-app.get('/api/shows/search/:term', sc.searchShows)
+app.get('/api/shows/search/:term', oc.searchShows)
 
+//search for people
+app.get('/api/people/search/:term', oc.searchPeople)
+
+//search for similar movies
+app.get('/api/movies/similar/:id', mc.findSimilar)
 
 
 
