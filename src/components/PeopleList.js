@@ -25,7 +25,7 @@ function List(props) {
             return(
                     <div className="box level is-danger" key={p.id}>
                         <img className="level-left" src={`${img_url}${p.profile_path}`} alt={`${p.name} poster`} />
-                        <div>
+                        <div className="people-list">
                             <p className="level-item title">{p.name}</p>
                             <p className="level-item subtitle">Known For</p>
                         <div className="level">

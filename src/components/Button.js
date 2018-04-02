@@ -1,10 +1,10 @@
 import React from 'react';
 
 function Button(props) {
-    let {callback, val, text, styleName} = props;
+    let { callback, val, text, styleName, number } = props;
     return (
         <div>
-            <button className={`button ${styleName} `} onClick={() => callback(val)}>{text}</button>
+            <button value={`${number}`} className={`button ${styleName} `} onClick={() => callback(val)}>{text}</button>
         </div> 
     )
 }

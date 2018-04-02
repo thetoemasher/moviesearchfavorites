@@ -169,15 +169,15 @@ togglePeople() {
         <Button text="Search Movies" 
           callback={this.searchMovieList} 
           val={userInput} 
-          styleName={`is-link ${movieFavsVisible} search`} />
+          styleName={`is-link ${movieFavsVisible}`} />
         
         <Button text="Search Favorites" 
           callback={this.searchFavorites} 
           val={userInput}
-          styleName={`is-info is-outlined ${movieFavsVisible} search`} />
+          styleName={`is-info is-outlined ${movieFavsVisible} search-favs`} />
 
       </div>
-      <div className={`${movieFavsVisible}`}>
+      <div className={`${movieFavsVisible} All-Lists`}>
 
         <Movies 
           showFavs={showFavorites}

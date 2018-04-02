@@ -46,6 +46,11 @@ input {
   margin-right: 30px;
 }
 
+.search-favs {
+  margin-left: 10px;
+  margin-right: 30px;
+}
+
 .known_for {
   height: 150px;
   width: auto;
@@ -53,6 +58,18 @@ input {
 
 .nav-button {
   margin-left: 10px;
+}
+
+.List-Right {
+  width: 100%;
+}
+
+.people-list {
+  width: 100%;
+}
+
+.All-Lists {
+  margin: 20px;
 }
 
 @keyframes App-logo-spin {

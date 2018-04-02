@@ -28,7 +28,7 @@ class Shows extends Component {
         let { img_url } = this.props;
         return (
             <div>
-                <div className="columns">
+                <div className="columns ">
         
                     <input 
                         className="input is-rounded" 
@@ -40,10 +40,11 @@ class Shows extends Component {
                         callback={this.searchShows} 
                         val={userInput} styleName="is-link search" />
                 </div>
-
-                <ShowsList 
-                    list={showsList} 
-                    img_url={img_url} />
+                <div className="All-Lists">
+                    <ShowsList 
+                        list={showsList} 
+                        img_url={img_url} />
+                </div>
                     
             </div>
         );

@@ -10,7 +10,7 @@ function List(props) {
             return(
                     <div className="box level is-danger" key={m.id}>
                         <img className="level-left" src={`${img_url}${m.poster_path}`} alt={`${m.title} poster`} />
-                        <div className="">
+                        <div className="List-Right">
 
                             <p className="level-item title">{m.title}</p>
                         <div className="level">
@@ -30,7 +30,7 @@ function List(props) {
                                     callback={ findSimilar }
                                     val={m.id}
                                     text="Find Similar"
-                                    styleName="is-link level-item" />
+                                    styleName="is-success level-item " />
                             
                                 <RateButton 
                                     movie={m}

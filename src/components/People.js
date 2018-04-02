@@ -42,12 +42,12 @@ class People extends Component {
                         val={userInput} 
                         styleName="is-link search" />
 
-                 </div>
-
+                </div>
+                <div className="All-Lists">
                 <PeopleList 
                     list={peopleList} 
                     img_url={img_url} />
-                    
+                </div>
             </div>
         );
     }
