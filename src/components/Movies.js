@@ -11,7 +11,7 @@ class Favorites extends Component {
     }
 
     render() {
-        let { movieList, img_url, favoriteMovie, showFavs, showModal, toggleModal, updateRatingMovies } = this.props;
+        let { movieList, img_url, favoriteMovie, showFavs, updateRatingMovies } = this.props;
         let visible = '';
         if (showFavs) {
             visible = "is-hidden";
@@ -24,8 +24,6 @@ class Favorites extends Component {
                 callback={favoriteMovie} 
                 text="Favorite" 
                 styleName="is-primary"
-                showModal={showModal}
-                toggleModal={toggleModal}
                 updateRatingAll={updateRatingMovies} />
             </div>
         );

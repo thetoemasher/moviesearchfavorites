@@ -16,16 +16,14 @@ class App extends Component {
       base_url: 'http://localhost:7859/api/movies/',
       img_url: 'https://image.tmdb.org/t/p/w200/',
       showFavorites: false,
-      showModal: false
-
     }
     this.searchMovieList = this.searchMovieList.bind(this);
     this.favoriteMovie = this.favoriteMovie.bind(this);
     this.deleteFavorite = this.deleteFavorite.bind(this);
     this.searchFavorites = this.searchFavorites.bind(this);
-    this.toggleModal = this.toggleModal.bind(this);
     this.updateRatingFavs = this.updateRatingFavs.bind(this);
     this.updateRatingMovies = this.updateRatingMovies.bind(this);
+    this.toggleFavs = this.toggleFavs.bind(this);
   }
 
   componentDidMount() {
@@ -62,20 +60,12 @@ searchFavorites(search) {
   })
 }
 
-
 toggleFavs() {
   this.setState({showFavorites: !this.state.showFavorites});
 }
 
-toggleModal() {
-  this.setState({ showModal: !this.state.showModal })
-}
-
 updateRatingMovies(id, rating) {
-  // console.log(id)
-  // console.log(rating)
   axios.put(`${this.state.base_url}${id}?rating=${rating}`).then(res => {
-    // console.log(res.data)
     this.setState({ movieList: res.data})
   })
 }
@@ -91,10 +81,34 @@ updateRatingFavs(id, rating) {
 
     return (
       <div className="App">
-        <h1 className="title is-1">Movie Search</h1>
+      <header className="hero is-primary is-medium">
+        <div className="hero-head">
+        <nav className="navbar">
+          <div className="navbar-menu">
+            <div className="navbar-end">
+              <Button val=""
+              styleName="is-primary" 
+              callback={this.toggleFavs}
+              text="Show Favorites" />
+            </div>
+          </div>
+        </nav>
+        </div>
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="title is-1">Movie Search</h1>
+          </div>
+        </div>
+
+      </header>
         <div className="columns">
-        <input className="input is-rounded" placeholder="Search for a Movie" onChange={(e) => {
-          this.updateUserInput(e.target.value)}}/>
+        <input 
+          value={userInput} 
+          className="input is-rounded" 
+          placeholder="Search for a Movie" 
+          onChange={(e) => {
+            this.updateUserInput(e.target.value)}}/>
+
           <Button text="Search Movies" 
             callback={this.searchMovieList} 
             val={userInput} 
@@ -104,25 +118,6 @@ updateRatingFavs(id, rating) {
             val={userInput}
             styleName="is-info is-outlined" />
         </div>
-        {/* <div className="field is-grouped is-centered">
-          <div className="control">
-            <input className="input is-rounded" placeholder="Search for a Movie" onChange={(e) => {
-              this.updateUserInput(e.target.value)}}/>
-          </div>
-          <div className="control">
-            <Button text="Search Movies" 
-            callback={this.searchMovieList} 
-            val={userInput} 
-            styleName="is-link" />
-          </div>
-          <div className="contorl">
-            <Button text="Search Favorites" 
-            callback={this.searchFavorites} 
-            val={userInput}
-            styleName="is-info is-outlined" />
-          </div>  
-        </div> */}
-              <button className="button" onClick={() => {this.toggleFavs()}}>Show Favorites</button>
 
         <div className="">
           <Movies 
@@ -130,8 +125,6 @@ updateRatingFavs(id, rating) {
           movieList={movieList} 
           img_url={img_url} 
           favoriteMovie={this.favoriteMovie}
-          showModal={showModal}
-          toggleModal={this.toggleModal}
           updateRatingMovies={this.updateRatingMovies} />
 
           <Favorites
@@ -140,8 +133,6 @@ updateRatingFavs(id, rating) {
           img_url={img_url} 
           base_url={base_url} 
           deleteFav={this.deleteFavorite}
-          showModal={showModal}
-          toggleModal={this.toggleModal}
           updateRatingFavs={this.updateRatingFavs} />
 
         </div>

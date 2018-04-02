@@ -4,13 +4,13 @@ import RateButton from './RateButton'
 // import './List.css'
 
 function List(props) {
-    let { list, img_url, callback, text, styleName, toggleModal, showModal, updateRatingAll } = props;
+    let { list, img_url, callback, text, styleName, showModal, updateRatingAll } = props;
     
     return (
         list.map(m => {
             let average = m.vote_average;
             return(
-                    <div className="box level" key={m.id}>
+                    <div className="box level is-danger" key={m.id}>
                         <img className="level-left" src={`${img_url}${m.poster_path}`} alt={`${m.title} poster`} />
                         <div>
 
@@ -26,13 +26,7 @@ function List(props) {
                                 val={m} 
                                 text={text} 
                                 styleName={`level-item ${styleName}`} />
-                                {/* <Button 
-                                callback={toggleModal} 
-                                text="Rate" 
-                                styleName="is-warning level-item" /> */}
                                 <RateButton 
-                                showModal={showModal} 
-                                toggleModal={toggleModal} 
                                 movie={m}
                                 updateRatingAll={updateRatingAll} />
                             </div>

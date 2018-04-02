@@ -11,7 +11,7 @@ class Favorites extends Component {
     }
 
     render() {
-        let { favorite, img_url, deleteFav, showFavs, showModal, toggleModal, updateRatingFavs } = this.props;
+        let { favorite, img_url, deleteFav, showFavs, updateRatingFavs } = this.props;
         let visible = 'is-hidden';
         if (showFavs) {
             visible = "";
@@ -24,8 +24,6 @@ class Favorites extends Component {
                 callback={deleteFav} 
                 text="Delete" 
                 styleName="is-danger"
-                showModal={showModal}
-                toggleModal={toggleModal}
                 updateRatingAll={updateRatingFavs} />
             </div>
         );
