@@ -16,7 +16,7 @@ class Favorites extends Component {
             visible = "";
         }
         return (
-            <div className={`${visible}`}>
+            <div className={visible}>
                 <List 
                     list={favorite} 
                     img_url={img_url} 

@@ -128,22 +128,22 @@ togglePeople() {
             <div className="navbar-end">
 
               <Button val=""
-              styleName="is-primary" 
+              styleName="is-primary nav-button" 
               callback={this.toggleMovies}
               text="Show Movies" />
             
               <Button val=""
-              styleName="is-primary" 
+              styleName="is-primary nav-button" 
               callback={this.toggleFavs}
               text="Show Favorites" />
             
               <Button val=""
-              styleName="is-primary"
+              styleName="is-primary nav-button"
               callback={this.toggleShows}
               text="Show TV" />
             
               <Button val=""
-              styleName="is-primary"
+              styleName="is-primary nav-button"
               callback={this.togglePeople}
               text="Show People" />
             
@@ -169,16 +169,16 @@ togglePeople() {
         <Button text="Search Movies" 
           callback={this.searchMovieList} 
           val={userInput} 
-          styleName={`is-link ${movieFavsVisible}`} />
+          styleName={`is-link ${movieFavsVisible} search`} />
         
         <Button text="Search Favorites" 
           callback={this.searchFavorites} 
           val={userInput}
-          styleName={`is-info is-outlined ${movieFavsVisible}`} />
+          styleName={`is-info is-outlined ${movieFavsVisible} search`} />
 
       </div>
       <div className={`${movieFavsVisible}`}>
-      
+
         <Movies 
           showFavs={showFavorites}
           movieList={movieList} 

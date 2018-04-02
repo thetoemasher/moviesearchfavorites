@@ -38,7 +38,7 @@ class Shows extends Component {
                     <Button 
                         text="Search TV Shows" 
                         callback={this.searchShows} 
-                        val={userInput} styleName="is-link" />
+                        val={userInput} styleName="is-link search" />
                 </div>
 
                 <ShowsList 

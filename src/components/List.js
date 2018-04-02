@@ -10,7 +10,7 @@ function List(props) {
             return(
                     <div className="box level is-danger" key={m.id}>
                         <img className="level-left" src={`${img_url}${m.poster_path}`} alt={`${m.title} poster`} />
-                        <div>
+                        <div className="">
 
                             <p className="level-item title">{m.title}</p>
                         <div className="level">

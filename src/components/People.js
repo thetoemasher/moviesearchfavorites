@@ -40,7 +40,7 @@ class People extends Component {
                         text="Search People" 
                         callback={this.searchPeople} 
                         val={userInput} 
-                        styleName="is-link" />
+                        styleName="is-link search" />
 
                  </div>
 
