@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mc = require('./controllers/movies_controller');
+const sc = require('./controllers/shows_controller');
 const cors = require('cors');
 
 const port = 7859;
@@ -29,6 +30,9 @@ app.put('/api/movies/favorites/:id', mc.updateFavRating)
 
 //updates the average rating on movies
 app.put('/api/movies/:id', mc.updateMovieRating)
+
+//search for shows
+app.get('/api/shows/search/:term', sc.searchShows)
 
 
 
