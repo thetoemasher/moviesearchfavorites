@@ -51,11 +51,6 @@ class People extends Component {
             </div>
         );
     }
-
-
 }
-
-
-
 
 export default People;

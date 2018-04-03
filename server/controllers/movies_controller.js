@@ -43,8 +43,13 @@ module.exports = {
 
     searchFavs: (req, res) => {
         let {term} = req.params;
-        let re = new RegExp(term, 'gi')
-        let filteredFavorites = favorites.filter(item => re.test(item.title));
+        let val = term.toUpperCase();
+        let filteredFavorites = favorites.filter(item => {
+            let title = item.title.toUpperCase()
+            if(title.includes(val)) {
+                return true;
+            }
+        });
         res.status(200).send(filteredFavorites);
     },
 

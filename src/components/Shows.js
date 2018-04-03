@@ -49,11 +49,6 @@ class Shows extends Component {
             </div>
         );
     }
-
-
 }
-
-
-
 
 export default Shows;

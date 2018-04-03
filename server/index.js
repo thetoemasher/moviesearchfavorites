@@ -40,7 +40,4 @@ app.get('/api/people/search/:term', oc.searchPeople)
 //search for similar movies
 app.get('/api/movies/similar/:id', mc.findSimilar)
 
-
-
-
 app.listen(port, () => console.log(`Having fun here at ${7859}`))
