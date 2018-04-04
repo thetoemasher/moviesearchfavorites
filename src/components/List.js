@@ -1,6 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Button from './Button';
-import RateButton from './RateButton'
+import RateButton from './RateButton';
 
 function List(props) {
     let { list, img_url, callback, text, styleName, updateRatingAll, findSimilar } = props;
@@ -26,11 +27,11 @@ function List(props) {
                                     text={text} 
                                     styleName={`level-item ${styleName}`} />
                             
-                                <Button
+                                <Link to='/'><Button
                                     callback={ findSimilar }
                                     val={m.id}
                                     text="Find Similar"
-                                    styleName="is-success level-item " />
+                                    styleName="is-success level-item " /></Link>
                             
                                 <RateButton 
                                     movie={m}
