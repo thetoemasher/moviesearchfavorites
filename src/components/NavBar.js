@@ -6,13 +6,21 @@ function NavBar(props) {
         <header className="hero is-primary is-medium">
             <div className="hero-head">
                 <nav className="navbar">
-                    <div className="navbar-menu">
+                    <div className="navbar-brand">
+                        <div className="navbar-burger" data-target="navBarA">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div id="navBarA" className="navbar-menu">
                         <div className="navbar-end">
 
-                            <Link to='/'><button className="button is-primary nav-button">Show Movies</button></Link>
-                            <Link to='/favorites'><button className="button is-primary nav-button">Show Favorites</button></Link>
-                            <Link to='/tv'><button className="button is-primary nav-button">Show TV</button></Link>
-                            <Link to='/people'><button className="button is-primary nav-button">Show People</button></Link>
+                            <Link className="navbar-item" to='/'><button className="button is-primary">Show Movies</button></Link>
+                            <Link className="navbar-item" to='/favorites'><button className="button is-primary">Show Favorites</button></Link>
+                            <Link className="navbar-item" to='/tv'><button className="button is-primary">Show TV</button></Link>
+                            <Link className="navbar-item" to='/people'><button className="button is-primary">Show People</button></Link>
                     
                         </div>
                     </div>
